@@ -255,6 +255,9 @@ def details(entry_id):
         raise ApiError(f"no entry found for ID {entry_id}")
 
     print(entry_line(entry))
+
+    print(colourize("Uploaded by:", "36;1"), colourize(entry.get("username"), "1"))
+
     print(colourize("Description:", "36;1"))
     description = entry.get("description") or entry.get("descr")
     print(sanitize_terminal_text(description, multiline=True) if description else "No description available.")
